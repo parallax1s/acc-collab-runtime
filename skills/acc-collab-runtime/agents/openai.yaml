@@ -1,0 +1,5 @@
+interface:
+  display_name: "ACC Collaboration Runtime"
+  short_description: "Coordinate multi-agent file claims and handoffs with ACC."
+  default_prompt: "Use ACC to coordinate this task: sync inbox, claim touched files, renew while running, and release on completion with a concise handoff message."
+
