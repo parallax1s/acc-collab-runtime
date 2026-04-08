@@ -1,0 +1,4 @@
+interface:
+  display_name: "ACC Collaboration Runtime"
+  short_description: "Coordinate concurrent agent work with inbox sync, file leases, and handoffs."
+  default_prompt: "Use ACC Collaboration Runtime to sync inbox, claim touched files narrowly, renew while working, and release with a concise handoff."

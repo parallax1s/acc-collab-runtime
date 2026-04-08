@@ -1,0 +1,18 @@
+{
+  "name": "acc-collab-runtime",
+  "description": "Coordinate multi-agent file claims, inbox sync, and handoffs around a private ACC CLI.",
+  "version": "0.1.0",
+  "author": {
+    "name": "ACC Collaboration Runtime Contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "acc",
+    "collaboration",
+    "codex",
+    "claude",
+    "leases",
+    "handoff",
+    "workflow"
+  ]
+}
