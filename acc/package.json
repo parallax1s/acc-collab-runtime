@@ -1,0 +1,14 @@
+{
+  "name": "@atlascargo/acc",
+  "version": "0.1.0",
+  "description": "Agent Communication CLI — file-based mailbox and leases for multi-agent coordination",
+  "bin": {
+    "acc": "bin/acc.js"
+  },
+  "main": "src/cli.js",
+  "scripts": {
+    "test": "node test/leases.test.js && node test/core.test.js && node test/task.test.js"
+  },
+  "keywords": ["agent", "communication", "cli", "multi-agent", "coordination"],
+  "license": "MIT"
+}
