@@ -1,6 +1,6 @@
 # ACC Collaboration Runtime
 
-ACC Collaboration Runtime is a multi-agent coding workflow for teams mixing Codex, Claude, and ACC-style file coordination.
+ACC Collaboration Runtime is a multi-agent coding workflow built around ACC, the Agent Communication CLI, for teams mixing Codex, Claude, and shared file coordination.
 
 It packages three things in one repo:
 
