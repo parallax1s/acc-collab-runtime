@@ -1,7 +1,7 @@
 {
   "name": "acc-collab-runtime",
   "version": "0.1.0",
-  "description": "Coordinate multi-agent file claims, inbox sync, and handoffs around a private ACC CLI.",
+  "description": "Coordinate multi-agent work with ACC and run bounded Codex Ralph loops from a local plugin.",
   "author": {
     "name": "ACC Collaboration Runtime Contributors"
   },
@@ -20,8 +20,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "ACC Collaboration Runtime",
-    "shortDescription": "Coordinate concurrent agents with inbox sync, leases, and handoffs",
-    "longDescription": "Bring ACC-based multi-agent coordination into Codex with a reusable skill, convenience commands, and a disciplined workflow for inbox sync, narrow file claims, lease renewal, and explicit handoffs.",
+    "shortDescription": "Coordinate agents with ACC and run bounded Codex Ralph loops",
+    "longDescription": "Bring ACC-based multi-agent coordination into Codex with reusable skills, convenience commands, and a disciplined workflow for inbox sync, narrow file claims, lease renewal, explicit handoffs, and Ralph-style iterative Codex loops.",
     "developerName": "ACC Collaboration Runtime Contributors",
     "category": "Coding",
     "capabilities": [
@@ -31,6 +31,8 @@
     ],
     "defaultPrompt": [
       "Use ACC Collaboration Runtime to coordinate this task with other agents: sync inbox, claim touched files, renew while working, and release with a concise handoff."
+      ,
+      "Use the Ralph loop commands when you want a bounded detached Codex exec loop with status, stop, and add-context controls."
     ],
     "brandColor": "#0F766E",
     "screenshots": []
