@@ -15,23 +15,37 @@ The user invoked this command with: $ARGUMENTS
 ## Instructions
 
 1. Determine the agent ID from `$ARGUMENTS`. If it is empty, derive a short agent ID from the current tool and role.
-2. Resolve the installed skill directory:
+2. Detect the current runtime:
 
 ```bash
-ACC_SKILL_DIR="${CODEX_HOME:-$HOME/.codex}/skills/acc-collab-runtime"
-if [[ ! -d "$ACC_SKILL_DIR" ]]; then
-  ACC_SKILL_DIR="${CLAUDE_HOME:-$HOME/.claude}/skills/acc-collab-runtime"
+ACC_RUNTIME="codex"
+if [[ -n "${CLAUDE_PROJECT_DIR:-}" ]]; then
+  ACC_RUNTIME="claude"
+elif [[ -n "${CODEX_HOME:-}" ]]; then
+  ACC_RUNTIME="codex"
+elif [[ -n "${CLAUDE_HOME:-}" ]]; then
+  ACC_RUNTIME="claude"
 fi
 ```
 
-3. Confirm that `${ACC_SKILL_DIR}/scripts/acc-run.sh` exists.
-4. Run the bootstrap command:
+3. Resolve the installed skill directory:
 
 ```bash
-"${ACC_SKILL_DIR}/scripts/acc-run.sh" install --type codex --agent-id <agent-id>
+if [[ "$ACC_RUNTIME" == "claude" ]]; then
+  ACC_SKILL_DIR="${CLAUDE_HOME:-$HOME/.claude}/skills/acc-collab-runtime"
+else
+  ACC_SKILL_DIR="${CODEX_HOME:-$HOME/.codex}/skills/acc-collab-runtime"
+fi
 ```
 
-5. Report the chosen agent ID and any follow-up steps.
+4. Confirm that `${ACC_SKILL_DIR}/scripts/acc-run.sh` exists.
+5. Run the bootstrap command:
+
+```bash
+"${ACC_SKILL_DIR}/scripts/acc-run.sh" install --type "${ACC_RUNTIME}" --agent-id <agent-id>
+```
+
+6. Report the chosen agent ID, detected runtime, and any follow-up steps.
 
 ## Rules
 

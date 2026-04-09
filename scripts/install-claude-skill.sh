@@ -91,3 +91,4 @@ EOF
 echo "Installed Claude skill at ${TARGET_SKILL}"
 echo "Installed Claude local plugin at ${PLUGIN_INSTALL}"
 echo "Enabled ${PLUGIN_KEY} in ${SETTINGS_PATH}"
+echo "Next step in each repo: run /acc-bootstrap <agent-id> in Claude"

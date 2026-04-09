@@ -7,7 +7,7 @@
   },
   "main": "src/cli.js",
   "scripts": {
-    "test": "node test/leases.test.js && node test/core.test.js && node test/task.test.js"
+    "test": "node test/leases.test.js && node test/core.test.js && node test/task.test.js && node test/install-claude.test.js"
   },
   "keywords": ["agent", "communication", "cli", "multi-agent", "coordination"],
   "license": "MIT"

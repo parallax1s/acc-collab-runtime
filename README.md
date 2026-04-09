@@ -38,10 +38,16 @@ Install into both:
 ./scripts/install.sh
 ```
 
-Bootstrap an agent in a repo:
+Bootstrap a Codex agent in a repo:
 
 ```bash
 ./bin/acc install --type codex --agent-id codex-main
+```
+
+Bootstrap a Claude agent in a repo:
+
+```bash
+./bin/acc install --type claude --agent-id claude-main
 ```
 
 Claim files before editing:
@@ -68,9 +74,14 @@ Release when done:
 ./bin/acc release --id codex-main
 ```
 
-## What Installation Changes
+## Install Model
 
-The installers do more than create a symlink.
+ACC uses a two-step install model:
+
+- global install: makes the skill and plugin available to Codex or Claude under `~/.codex` or `~/.claude`
+- repo bootstrap: wires the current repository for a specific agent with `./bin/acc install --type codex|claude --agent-id <id>`
+
+The global installers do more than create a symlink.
 
 For Codex they:
 
@@ -87,6 +98,22 @@ For Claude they:
 
 They do not run `npm install`.
 
+## Claude Repo Bootstrap
+
+`./bin/acc install --type claude --agent-id <id>` is the step that makes Claude operational inside a repository.
+
+It writes:
+
+- `.agent-comms/` with inbox, leases, receipts, and tasks state
+- `.claude/hooks/acc-pre-tool-use.js` as an ACC-managed repo-local hook
+- `.claude/settings.json` updates that register the ACC `PreToolUse` hook without removing unrelated settings
+
+Behavior is conservative:
+
+- if `.claude/settings.json` is malformed JSON, bootstrap stops without writing anything
+- if `.claude/hooks/acc-pre-tool-use.js` already exists and is not ACC-managed, bootstrap stops instead of overwriting it
+- rerunning bootstrap is idempotent and keeps a single ACC hook entry
+
 ## Plugin Commands
 
 The plugin exposes three slash commands:
@@ -94,6 +121,8 @@ The plugin exposes three slash commands:
 - `/acc-bootstrap`: register the current agent in the current repo
 - `/acc-sync`: read and summarize pending coordination messages
 - `/acc-handoff`: send a concise update or handoff to another agent
+
+For Claude, `/acc-bootstrap` should be the first command you run in each repo after the global plugin install.
 
 The shared skill can also be invoked directly by asking for `acc-collab-runtime`.
 
@@ -142,6 +171,7 @@ Run the full validation suite:
 That covers:
 
 - vendored ACC CLI tests
+- Claude repo bootstrap tests
 - skill wrapper tests
 - bundled CLI resolution tests
 - Codex installer tests against a disposable `CODEX_HOME`
