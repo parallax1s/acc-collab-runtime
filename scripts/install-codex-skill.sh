@@ -12,6 +12,8 @@ PLUGIN_ROOT="${TARGET_ROOT}/plugins/cache/local-codex-plugins/${PLUGIN_NAME}"
 PLUGIN_INSTALL="${PLUGIN_ROOT}/local"
 CONFIG_PATH="${TARGET_ROOT}/config.toml"
 
+"${REPO_ROOT}/scripts/validate-plugin-bundles.sh" >/dev/null
+
 ensure_plugin_enabled() {
   local config_path="$1"
   local plugin_key="$2"

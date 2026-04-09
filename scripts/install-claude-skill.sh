@@ -16,6 +16,8 @@ INSTALLED_PLUGINS_PATH="${TARGET_ROOT}/plugins/installed_plugins.json"
 KNOWN_MARKETPLACES_PATH="${TARGET_ROOT}/plugins/known_marketplaces.json"
 SETTINGS_PATH="${TARGET_ROOT}/settings.json"
 
+"${REPO_ROOT}/scripts/validate-plugin-bundles.sh" >/dev/null
+
 mkdir -p "${SKILLS_DIR}" "${PLUGIN_ROOT}" "${TARGET_ROOT}/plugins"
 rm -rf "${TARGET_SKILL}"
 ln -s "${REPO_ROOT}/skills/acc-collab-runtime" "${TARGET_SKILL}"

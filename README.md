@@ -5,7 +5,7 @@ ACC Collaboration Runtime is a multi-agent coding workflow built around ACC, the
 It packages three things in one repo:
 
 - a bundled `acc` CLI for mailbox, lease, and task coordination
-- an installable skill for Codex and Claude
+- installable Codex and Claude plugin bundles rooted at `.codex-plugin/` and `.claude-plugin/`
 - local plugin packaging and slash commands for both apps
 
 This is for shared-repo coding sessions where multiple agents may touch overlapping files. It is not a general-purpose chat plugin.
@@ -97,6 +97,7 @@ For Claude they:
 - enable `acc-collab-runtime@local-claude-plugins` in `~/.claude/settings.json`
 
 They do not run `npm install`.
+They validate that the plugin bundle manifests plus command and skill payloads are present before installing.
 
 ## Claude Repo Bootstrap
 
@@ -172,6 +173,7 @@ That covers:
 
 - vendored ACC CLI tests
 - Claude repo bootstrap tests
+- plugin bundle validation tests
 - skill wrapper tests
 - bundled CLI resolution tests
 - Codex installer tests against a disposable `CODEX_HOME`

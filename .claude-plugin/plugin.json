@@ -5,6 +5,8 @@
   "author": {
     "name": "ACC Collaboration Runtime Contributors"
   },
+  "homepage": "https://github.com/parallax1s/acc-collab-runtime",
+  "repository": "https://github.com/parallax1s/acc-collab-runtime",
   "license": "MIT",
   "keywords": [
     "acc",

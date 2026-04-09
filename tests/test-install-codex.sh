@@ -19,6 +19,11 @@ CODEX_HOME="${CODEX_HOME}" "${REPO_ROOT}/scripts/install-codex-skill.sh" >/dev/n
 [[ "$(readlink "${SKILL_DIR}")" == "${REPO_ROOT}/skills/acc-collab-runtime" ]]
 [[ -L "${PLUGIN_DIR}" ]]
 [[ "$(readlink "${PLUGIN_DIR}")" == "${REPO_ROOT}" ]]
+[[ -f "${PLUGIN_DIR}/.codex-plugin/plugin.json" ]]
+[[ -f "${PLUGIN_DIR}/commands/acc-bootstrap.md" ]]
+[[ -f "${PLUGIN_DIR}/commands/acc-sync.md" ]]
+[[ -f "${PLUGIN_DIR}/commands/acc-handoff.md" ]]
+[[ -f "${PLUGIN_DIR}/skills/acc-collab-runtime/SKILL.md" ]]
 grep -F '[plugins."acc-collab-runtime@local-codex-plugins"]' "${CONFIG_PATH}" >/dev/null
 grep -F 'enabled = true' "${CONFIG_PATH}" >/dev/null
 

@@ -21,6 +21,11 @@ CLAUDE_HOME="${CLAUDE_HOME}" "${REPO_ROOT}/scripts/install-claude-skill.sh" >/de
 [[ "$(readlink "${SKILL_DIR}")" == "${REPO_ROOT}/skills/acc-collab-runtime" ]]
 [[ -L "${PLUGIN_DIR}" ]]
 [[ "$(readlink "${PLUGIN_DIR}")" == "${REPO_ROOT}" ]]
+[[ -f "${PLUGIN_DIR}/.claude-plugin/plugin.json" ]]
+[[ -f "${PLUGIN_DIR}/commands/acc-bootstrap.md" ]]
+[[ -f "${PLUGIN_DIR}/commands/acc-sync.md" ]]
+[[ -f "${PLUGIN_DIR}/commands/acc-handoff.md" ]]
+[[ -f "${PLUGIN_DIR}/skills/acc-collab-runtime/SKILL.md" ]]
 
 INSTALLED_PLUGINS_PATH="${INSTALLED_PLUGINS_PATH}" \
 KNOWN_MARKETPLACES_PATH="${KNOWN_MARKETPLACES_PATH}" \
