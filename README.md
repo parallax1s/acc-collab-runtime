@@ -127,13 +127,6 @@ The plugin exposes three slash commands:
 
 For Claude, `/acc-bootstrap` should be the first command you run in each repo after the global plugin install.
 
-The Codex plugin also exposes Ralph loop commands:
-
-- `/ralph-start`: start a bounded detached `codex exec` loop in the current repo
-- `/ralph-status`: inspect current loop state
-- `/ralph-add-context`: append operator guidance for future iterations
-- `/ralph-stop`: stop the active loop
-
 The shared skill can also be invoked directly by asking for `acc-collab-runtime`.
 
 ## Direct Skill Helpers
@@ -155,33 +148,6 @@ Example guarded command:
   -- \
   npm test
 ```
-
-## Codex Ralph Loop
-
-The same Codex plugin can also run a bounded Ralph-style loop in the current repository.
-
-Repo-local state lives under `.ralph/`:
-
-- `.ralph/ralph-loop.state.json`
-- `.ralph/ralph-history.json`
-- `.ralph/ralph-context.md`
-- `.ralph/logs/`
-
-Typical flow:
-
-```bash
-node scripts/ralph-start.js --prompt "Implement feature X" --max-iterations 5 --completion-promise COMPLETE
-node scripts/ralph-status.js
-node scripts/ralph-add-context.js --message "Prefer the smaller patch."
-node scripts/ralph-stop.js
-```
-
-Safety constraints:
-
-- always set an explicit max iteration bound
-- only one Ralph loop is allowed per repo by default
-- use `ralph-status` before assuming the loop is still active
-- prefer `ralph-stop` over killing the process manually
 
 ## Repository Layout
 
@@ -210,7 +176,6 @@ That covers:
 - vendored ACC CLI tests
 - Claude repo bootstrap tests
 - plugin bundle validation tests
-- Ralph loop integration tests
 - skill wrapper tests
 - bundled CLI resolution tests
 - Codex installer tests against a disposable `CODEX_HOME`

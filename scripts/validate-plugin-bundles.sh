@@ -71,12 +71,7 @@ requireString(claudeManifest.author.name, ".claude-plugin/plugin.json:author.nam
 requireFile("commands/acc-bootstrap.md");
 requireFile("commands/acc-sync.md");
 requireFile("commands/acc-handoff.md");
-requireFile("commands/ralph-start.md");
-requireFile("commands/ralph-status.md");
-requireFile("commands/ralph-stop.md");
-requireFile("commands/ralph-add-context.md");
 requireFile("skills/acc-collab-runtime/SKILL.md");
-requireFile("skills/ralph-loop/SKILL.md");
 requireFile("skills/acc-collab-runtime/scripts/acc-run.sh");
 requireFile("skills/acc-collab-runtime/scripts/acc-inbox.sh");
 requireFile("skills/acc-collab-runtime/scripts/acc-guard.sh");
