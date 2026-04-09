@@ -87,7 +87,9 @@ For Codex they:
 
 - symlink the skill into `~/.codex/skills/acc-collab-runtime`
 - symlink the repo into `~/.codex/plugins/cache/local-codex-plugins/acc-collab-runtime/local`
+- symlink the repo into `~/plugins/acc-collab-runtime` for local marketplace discovery
 - enable `acc-collab-runtime@local-codex-plugins` in `~/.codex/config.toml`
+- register the plugin in `~/.agents/plugins/marketplace.json` so it appears in the Codex plugins browser
 
 For Claude they:
 
